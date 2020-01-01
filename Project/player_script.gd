@@ -34,3 +34,12 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
+	for i in get_slide_count(): 
+		var collision = get_slide_collision(i)
+		#print("Collided with: ", collision.collider.name)
+		if collision.collider.name == "QuestStartPoint":
+			if !get_parent().getQuestActiveStatus():
+				print("Collided with a Start Quest Node!")
+				get_parent().generateQuest(level)
+
+
