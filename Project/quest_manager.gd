@@ -6,7 +6,7 @@ var quest_title = ""
 var quest_location_x  = 0
 var quest_location_y = 0
 var quest_difficulty = 0
-
+var quest_questions = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,9 +26,26 @@ func generateQuest(player_level):
 		print(quest_title)
 		generateQuestDifficulty(player_level)
 		print("Difficulty: ", quest_difficulty)
+		generateQuestQuestions()
+		for i in quest_questions:
+			print(quest_questions.i[0])
+			print(quest_questions.i[1])
+			print(quest_questions.i[2])
 	
 func generateQuestTitle():
 	quest_title = "Defeat {Addition} {Troll}!"
 	
 func generateQuestDifficulty(player_level):
 	quest_difficulty = rand_range(0.0, player_level+5.0)
+	
+func generateQuestQuestions():
+	var num_qs = rand_range(3.0, 10.0)
+	var n1 = 0
+	var n2 = 0
+	var ans = 0
+	for i in num_qs:
+		n1 = int(round(rand_range(0.0, quest_difficulty + 5)))
+		n2 = int(round(rand_range(0.0, quest_difficulty + 5)))
+		ans = n1 + n2
+		var q = [n1, n2, ans]
+		quest_questions.i = q
