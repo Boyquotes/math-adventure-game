@@ -38,8 +38,9 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 		#print("Collided with: ", collision.collider.name)
 		if collision.collider.name == "QuestStartPoint":
-			if !get_parent().getQuestActiveStatus():
+			if !quest_manager.getQuestActiveStatus():
 				print("Collided with a Start Quest Node!")
-				get_parent().generateQuest(level)
+				quest_manager.generateQuest(level)
+				get_tree().change_scene("res://BattleScene.tscn")
 
 

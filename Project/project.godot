@@ -19,6 +19,10 @@ config/name="math-adventure-game"
 run/main_scene="res://TestLevel.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+quest_manager="*res://quest_manager.gd"
+
 [input]
 
 up={

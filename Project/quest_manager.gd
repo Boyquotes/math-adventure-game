@@ -10,6 +10,7 @@ var quest_questions = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,6 +18,9 @@ func _ready():
 #	pass
 func getQuestActiveStatus():
 	return quest_active
+
+func getQuestQuestions():
+	return quest_questions
 
 func generateQuest(player_level):
 	if !quest_active:
@@ -36,7 +40,7 @@ func generateQuestTitle():
 	quest_title = "Defeat {Addition} {Troll}!"
 	
 func generateQuestDifficulty(player_level):
-	quest_difficulty = rand_range(0.0, player_level+5.0)
+	quest_difficulty = int(round(rand_range(0.0, player_level+5.0)))
 	
 func generateQuestQuestions():
 	var num_qs = int(round(rand_range(3.0, 10.0)))
